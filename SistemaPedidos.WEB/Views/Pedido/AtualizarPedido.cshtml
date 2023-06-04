@@ -1,0 +1,43 @@
+﻿@*@model SistemaPedidos.WEB.Models.PedidoViewModel
+
+<form asp-action="AtualizarPedido">
+    <div class="container border p-3 mt-5">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Cliente.Id" />
+        <input type="hidden" asp-for="Produto.Id" />
+        <h1 class="text-primary">Atualizar Pedido</h1>
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size: 20px;" asp-for="Cliente">Cliente</label>
+            </div>
+            <div class="col-10 pb-3">
+                <select class="form-select" asp-for="Cliente.Id" asp-items="@(new SelectList(Model.Clientes.Result,"Id","Nome"))" required>
+                    <option>Selecione</option>
+                </select>
+            </div>
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size: 20px;" asp-for="Produto">Produto</label>
+            </div>
+            <div class="col-10 pb-3">
+                <select asp-for="Produto.Id" asp-items="@(new SelectList(Model.Produtos.Result,"Id","Nome"))" class="form-control" required>
+                    <option value="">Selecione</option>
+                </select>
+            </div>
+
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size: 20px;" asp-for="Status">Status do pedido</label>
+            </div>
+            <div class="col-10 pb-3">
+                <input class="form-control" asp-for="Status" required />
+            </div>
+            <div class="col-5 offset-2">
+                <a asp-action="Index" class="btn-primary btn form-control">Voltar para a lista</a>
+            </div>
+            <div class="col-5">
+                <input type="submit" value="Atualizar" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>*@

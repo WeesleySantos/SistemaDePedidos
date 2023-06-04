@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SistemaPedidos.WEB.Models.PedidoViewModel>
+
+<div class="container p-4 border mt-5">
+    <div class="row pb-2">
+        <div class="col">
+            <h1 class="text-primary">Lista de Pedidos</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a class="btn btn-outline-primary" asp-action="CadastrarPedido" asp-controller="Pedido">
+                <i class="fas fa-plus"></i> Cadastrar um novo pedido
+            </a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Pedido</th>
+                    <th>Editar</th>
+                    <th>Detalhes pedido</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Cliente.Nome</td>
+                        <td>@item.Produto.Nome</td>
+                        <td>
+                            <a asp-action="DeletarPedido" class="btn btn-danger" asp-route-id="@item.Id">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-action="DetalhePedido" class="btn btn-success" asp-route-id="@item.Id">
+                                <i class="fas fa-truck-fast"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

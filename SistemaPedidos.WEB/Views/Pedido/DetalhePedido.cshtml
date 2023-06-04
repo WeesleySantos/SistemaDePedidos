@@ -1,0 +1,47 @@
+﻿@model SistemaPedidos.WEB.Models.PedidoViewModel
+
+<div class="container border p-3 mt-5">
+    <h1 class="text-primary">Detalhes do Pedido</h1>
+    <hr />
+    <div class="row">
+        <input type="hidden" asp-for="Id"/>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-2">
+            <label class="control-label pt-2" style="font-size: 20px;" asp-for="Cliente">Cliente:</label>
+        </div>
+        <div class="col-10 pb-3 mt-2">
+            <strong class="text-info">@Model.Cliente.Nome</strong>
+        </div>
+        <div class="col-2">
+            <label class="control-label pt-2" style="font-size: 20px;" asp-for="Produto">Produto:</label>
+        </div>
+        <div class="col-10 pb-3 mt-2">
+            <strong class="text-info">@Model.Produto.Nome</strong>
+        </div>
+        <div class="col-2">
+            <label class="control-label pt-2" style="font-size: 20px;" asp-for="Produto">Preço:</label>
+        </div>
+        <div class="col-10 pb-3 mt-2">
+            <strong class="text-info">@((Model.Produto.Preco).ToString("c"))</strong>
+        </div>
+        <div class="col-2">
+            <label class="control-label pt-2" style="font-size: 20px;" asp-for="DataPedido">Data do Pedido:</label>
+        </div>
+        <div class="col-10 pb-3 mt-2">
+            <strong class="text-info">@Model.DataPedido</strong>
+        </div>
+        <div class="col-2">
+            <label class="control-label pt-2" style="font-size: 20px;" asp-for="Status">Status do Pedido:</label>
+        </div>
+        <div class="col-10 pb-3 mt-2">
+            <strong class="text-info">@Model.Status</strong>
+        </div>
+        <div class="col-5 offset-2">
+            <a asp-action="Index" class="btn-primary btn form-control">Voltar para a lista</a>
+        </div>
+        <div class="col-5">
+            <input type="submit" value="Criar" class="btn btn-success form-control" />
+        </div>
+    </div>
+</div>

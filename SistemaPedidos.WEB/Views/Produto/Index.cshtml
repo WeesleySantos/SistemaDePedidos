@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SistemaPedidos.WEB.Models.ProdutoViewModel>
+
+<div class="container p-4 border mt-5">
+    <div class="row pb-2">
+        <div class="col">
+            <h1 class="text-primary">Lista de produtos</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a class="btn btn-outline-primary" asp-action="CriarProduto" asp-controller="Produto">
+                <i class="fas fa-plus"></i> Criar novo Produto
+            </a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Ativo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nome</td>
+                        <td>@((item.Preco).ToString("c"))</td>
+                        <td><i class="fa @(item.Ativo ? "fa-check text-success" : "fa fa-times text-danger")"> </i></td>
+                        <td>
+                            <a asp-action="AtualizarProduto" class="btn btn-success" asp-route-id="@item.Id">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
